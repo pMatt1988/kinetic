@@ -1,0 +1,7 @@
+.idea/
+tmp/
+base-gght
+vendor/
+views/**/*_templ.go
+test.db
+gght

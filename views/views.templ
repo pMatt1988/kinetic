@@ -1,0 +1,39 @@
+package views
+
+import (
+	"github.com/pmatt1988/kinetic/lib/db"
+)
+
+templ Index(people []db.Person) {
+	@Layout() {
+		<form hx-post="/add-person" hx-target="#dogs" hx-swap="beforeend" hx-on::after-request="this.reset()" value="">
+			<input placeholder="Add Person" type="text" class="outline p-2" name="name"/>
+			<button type="submit" class="bg-slate-500 hover:bg-slate-700 p-2 text-white">Submit</button>
+		</form>
+		<h2 class="text-2xl">People</h2>
+		<div id="dogs">
+			for _, p := range people {
+				@Person(p.Name)
+			}
+		</div>
+	}
+}
+
+templ Layout() {
+	<html>
+		<head>
+			<title>My App</title>
+			<link rel="stylesheet" href="/assets/styles.css"/>
+			<script src="https://unpkg.com/htmx.org@1.9.10" integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC" crossorigin="anonymous"></script>
+		</head>
+		<body class="bg-slate-200 p-8">
+			<div class="container lg:max-w-5xl mx-auto bg-white p-4">
+				{ children... }
+			</div>
+		</body>
+	</html>
+}
+
+templ Person(text string) {
+	<p>{ text }</p>
+}

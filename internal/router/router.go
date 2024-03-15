@@ -3,8 +3,8 @@ package router
 import (
 	"github.com/a-h/templ"
 	"github.com/gin-gonic/gin"
-	"github.com/pmatt1988/kinetic/lib/db"
-	"github.com/pmatt1988/kinetic/views"
+	"github.com/pmatt1988/kinetic/internal/db"
+	"github.com/pmatt1988/kinetic/internal/views"
 )
 
 func Init() *gin.Engine {

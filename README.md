@@ -22,5 +22,11 @@ The easiest way to install npm is to install Node as they are bundled.
 https://nodejs.org/en/download/package-manager
 
 
+## Installation
+Right now the easiest way to install the framework is to clone this repo.
+```sh
+git clone git@github.com:pMatt1988/kinetic.git
+```
+
 ## Usage
 To compile and run your server you can simply run the `air` command at the root of your project

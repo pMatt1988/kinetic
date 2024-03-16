@@ -6,7 +6,7 @@ tmp_dir = "tmp"
   args_bin = []
   bin = "./tmp/main"
   # Default command (for files that don't match patterns in [build.cmd] ): 
-  cmd = "npx tailwindcss -i ./src/styles.scss -o ./assets/styles.css && templ generate && go build -o ./tmp/main ." 
+  cmd = "npx tailwindcss -i ./src/styles.scss -o ./assets/styles.css && templ generate && go build -o ./tmp/main ./cmd/kinetic" 
   delay = 1000
   exclude_dir = ["assets", "tmp", "vendor", "testdata"]
   exclude_file = []

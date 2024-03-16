@@ -18,10 +18,20 @@ func Init() *gin.Engine {
 		render(ctx, 200, views.Index(people))
 	})
 
-	router.POST("/add-person", func(ctx *gin.Context) {
+	router.PUT("/person", func(ctx *gin.Context) {
 		name := ctx.PostForm("name")
-		db.Client.Create(&db.Person{Name: name})
-		render(ctx, 200, views.Person(ctx.PostForm("name")))
+
+		person := db.Person{Name: name}
+		db.Client.Create(&person)
+		render(ctx, 200, views.Person(person))
+	})
+
+	router.DELETE("/person/:id", func(ctx *gin.Context) {
+		id := ctx.Param("id")
+
+		db.Client.Delete(&db.Person{}, id)
+
+		ctx.Status(200)
 	})
 
 	err := router.Run("localhost:8080")
